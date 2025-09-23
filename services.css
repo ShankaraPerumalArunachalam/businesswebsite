@@ -140,5 +140,7 @@
 @media (max-width: 768px) {
     .services-section { padding: 2rem 1rem; }
     .services-header h2 { font-size: 2rem; }
+     .service-card { width: 100%; }
 
 }
+

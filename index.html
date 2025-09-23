@@ -278,7 +278,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
         </button>
     </div>
 
-    <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-full max-w-sm transform translate-x-full
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 z-[999] w-full max-w-sm transform translate-x-full
             bg-black/80 backdrop-blur-lg p-6
             transition-transform duration-300 ease-in-out lg:hidden">
         
@@ -306,8 +306,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 <script>
     // --- SCRIPT FOR HEADER SCROLL EFFECT ---
     const header = document.getElementById('main-header');
-    if (header) {
-        window.addEventListener('scroll', () => {
+   if (header) {
+    window.addEventListener('scroll', () => {
+        // First, check if the screen width is 1024px or greater
+        if (window.matchMedia('(min-width: 1024px)').matches) {
+            
+            // If the screen is large, apply the scroll effect logic
             if (window.scrollY > 10) {
                 header.classList.add('bg-black/80', 'backdrop-blur-lg', 'border-b', 'border-white/20', 'shadow-lg');
                 header.classList.remove('bg-black');
@@ -315,8 +319,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
                 header.classList.remove('bg-black/80', 'backdrop-blur-lg', 'border-b', 'border-white/20', 'shadow-lg');
                 header.classList.add('bg-black');
             }
-        });
-    }
+
+        } else {
+            // If the screen is smaller than 1024px, ensure the header is always solid black
+            // This prevents styles from getting stuck if the user resizes their window
+            header.classList.remove('bg-black/80', 'backdrop-blur-lg', 'border-b', 'border-white/20', 'shadow-lg');
+            header.classList.add('bg-black');
+        }
+    });
+}
 
     // --- SCRIPT FOR MOBILE MENU TOGGLE ---
     const openMenuBtn = document.getElementById('open-menu-btn');
@@ -328,11 +339,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
         // Function to open the menu
         const openMenu = () => {
             mobileMenu.classList.remove('translate-x-full');
+            document.body.classList.add('overflow-hidden');
         };
 
         // Function to close the menu
         const closeMenu = () => {
             mobileMenu.classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
         };
 
         // Event listeners for buttons

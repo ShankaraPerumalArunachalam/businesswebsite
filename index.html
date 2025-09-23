@@ -277,10 +277,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 </header>
 
 
-<main class="flex-1">
+<main class="flex-1 bg-black">
  <!-- Particle Background -->
-<div id="particles-js" class="absolute inset-0 -z-10"></div>
 
+<div id="particles-left" class=""></div>
+  <div id="particles-right" class=""></div>
 <!-- Hero Section -->
 <div class="relative container mx-auto px-4 text-center py-20">
   <h1 class="text-4xl font-extrabold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
@@ -302,11 +303,22 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 </div>
 
  <style>
- #particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black; /* fallback background */
+  #particles-left,
+        #particles-right {
+            position: fixed;
+            top: 0;
+            width: 300px; /* Width of particle strip */
+            height: 100vh;
+            pointer-events: none; /* Allow clicks through */
+            z-index: 0; /* Set to 0 so it's above the background but below content */
+        }
+        #particles-left { left: 0; }
+        #particles-right { right: 0; }
+@media (max-width: 768px) {
+    #particles-left,
+    #particles-right {
+        width: 50px; /* Reduced width for mobile */
+    }
 }
 
 </style>
@@ -314,17 +326,26 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
-particlesJS("particles-js", {
+const config = {
   "particles": {
-    "number": { "value": 120, "density": { "enable": true, "value_area": 100 } },
+    "number": {
+      "value": 500, // Changed from 60 to 120
+      "density": { "enable": true, "value_area": 600 }
+    },
     "color": { "value": "#ffffff" },
     "shape": { "type": "circle" },
     "opacity": { "value": 0.5 },
     "size": { "value": 3, "random": true },
-    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+    "line_linked": {
+      "enable": true,
+      "distance": 120,
+      "color": "#ffffff",
+      "opacity": 0.3,
+      "width": 1
+    },
     "move": {
       "enable": true,
-      "speed": 0.5, // Changed from 4 to 0.5 for minimal speed
+      "speed": 0.3,
       "random": true,
       "out_mode": "out"
     }
@@ -337,11 +358,14 @@ particlesJS("particles-js", {
     },
     "modes": {
       "repulse": { "distance": 100, "duration": 0.4 },
-      "push": { "particles_nb": 0.5 }
+      "push": { "particles_nb": 2 }
     }
   },
   "retina_detect": true
-});
+};
+
+particlesJS("particles-left", config);
+particlesJS("particles-right", config);
 </script>
 
 <div class="mx-auto container space-y-5 px-4 py-4 sm:px-6 sm:py-24 max-md:pt-40 lg:px-8">

@@ -66,7 +66,7 @@
 
 /* --- SVG ARROWS --- */
 .arrow { position: absolute; width: 150px; height: 150px; z-index: 5; pointer-events: none; }
-.arrow-path { stroke: #343a40; stroke-width: 5; }
+.arrow-path { stroke: honeydew; stroke-width: 5; }
 .arrow-head { fill: #343a40; }
 
 .arrow-1 { top: 19%;
@@ -140,4 +140,5 @@
 @media (max-width: 768px) {
     .services-section { padding: 2rem 1rem; }
     .services-header h2 { font-size: 2rem; }
+
 }

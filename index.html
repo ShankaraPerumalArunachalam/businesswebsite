@@ -246,17 +246,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 <body class="bg-background-light dark:bg-background-white font-display text-gray-800 dark:text-gray-200">
 <div class="relative min-h-screen w-full">
 <div class="flex h-full grow flex-col">
-<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap
-  border-b border-white/20  px-4 py-3 backdrop-blur-lg shadow-lg sm:px-6 lg:px-10">
+  <header id="main-header" class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap
+           px-4 py-3 sm:px-6 lg:px-10 bg-black">
 
   <!-- Logo -->
   <div class="flex items-center gap-3">
-    <div class="h-6 w-6 text-black">
+    <div class="h-6 w-6 text-white">
       <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
         <path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
       </svg>
     </div>
-    <h2 class="text-lg font-bold text-black">Digital Solutions Co.</h2>
+    <h2 class="text-lg font-bold text-white">Digital Solutions Co.</h2>
   </div>
 
   <!-- Desktop Nav -->
@@ -275,7 +275,24 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     </svg>
   </button>
 </header>
+<script>
+        // Get the header element by its ID
+        const header = document.getElementById('main-header');
 
+        // Listen for the scroll event on the window
+        window.addEventListener('scroll', () => {
+            // Check if the user has scrolled down more than 10 pixels
+            if (window.scrollY > 10) {
+                // When scrolled: remove solid background, add glossy effect
+                header.classList.add('backdrop-blur-lg', 'border-b', 'border-white/20', 'shadow-lg');
+                header.classList.remove('bg-black');
+            } else {
+                // When at the top: remove glossy effect, add solid background
+                header.classList.remove('backdrop-blur-lg', 'border-b', 'border-white/20', 'shadow-lg');
+                header.classList.add('bg-black');
+            }
+        });
+    </script>
 
 <main class="flex-1 bg-black">
  <!-- Particle Background -->
@@ -285,14 +302,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
 <!-- Hero Section -->
 <div class="relative container mx-auto px-4 text-center py-20">
   <h1 class="text-4xl font-extrabold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
-    Build Websites and Apps — 
-    <span class="text-primary">Faster, Smarter</span>
+    Build Websites and Apps<br/>
+    <span class="bg-gradient-to-r from-blue-500 to-teal-400 
+  text-transparent 
+  bg-clip-text">Faster, Smarter</span>
   </h1>
 
   <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-300">
-    We are a digital service provider helping businesses grow with innovative web 
-    and app development. Our team blends creativity and technology to deliver 
-    outstanding results.
+  We build high-performance digital solutions, blending creative design with smart technology to grow your business.
   </p>
 
   <a href="#contact"

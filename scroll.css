@@ -402,4 +402,34 @@
       opacity: 0;
     }
   }
+
+}
+
+.glossy-circle {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 8px solid rgba(200, 200, 200, 0.3); /* soft border */
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.2), rgba(0,0,0,0.1));
+  box-shadow: inset -6px -6px 15px rgba(255,255,255,0.3),
+              inset 6px 6px 15px rgba(0,0,0,0.2),
+              0 4px 20px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible; /* ensures Lottie is not clipped */
+}
+
+@media (min-width: 768px) {
+  .glossy-circle {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* Ensure Lottie stays inside circle */
+.glossy-circle .card-img {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%; /* optional for circular fit */
 }

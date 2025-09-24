@@ -505,10 +505,10 @@ particlesJS("particles-right", config);
 </section>
 <link rel="stylesheet" href="./scroll.css" />
 <div class="section bg-black scroll-code">
-  <div class="section-wrapper bg-black">
+  <div class="section-wrapper bg-black ">
     <div class="content-wrapper">
       <!-- Content 1 -->
-      <div class="content content-1">
+      <div class="content content-1 max-md:!mt-[-150px]">
         <div class="mobile-visual">
           <div class="glossy-circle">
            <dotlottie-wc class="card-img w-[70vw] max-w-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px]"
@@ -520,7 +520,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
 </div>
         </div>
-        <div class="meta md:!mt-[-50px]">
+        <div class="meta md:!mt-[-510px]">
           <h2 class="headline text-4xl lg:text-5xl font-extrabold text-white">
             Empower Your Website</span>
           </h2>
@@ -542,7 +542,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
 </div>
         </div>
-        <div class="meta md:!mt-[-300px]">
+        <div class="meta md:!mt-[-500px]">
           <h2 class="headline text-4xl lg:text-5xl font-extrabold text-white">
             Scalable Web Applications</span>
           </h2>
@@ -564,7 +564,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
           </div>
         </div>
-        <div class="meta md:!mt-[-300px]">
+        <div class="meta md:!mt-[-200px]">
           <h2 class="headline text-4xl lg:text-5xl font-extrabold text-white">
             Native Mobile Apps</span>
           </h2>
@@ -586,7 +586,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
           </div>
         </div>
-        <div class="meta md:!mt-[-300px]">
+        <div class="meta md:!mt-[-180px]">
          <h2 class="headline text-4xl lg:text-5xl font-extrabold text-white">
             Flexible Hybrid Apps</span>
           </h2>
@@ -598,7 +598,7 @@ particlesJS("particles-right", config);
     </div>
     <div class="visual">
       <div class="card-wrapper">
-        <div class="card card-1">
+        <div class="card card-1 md:!mt-[-278px]">
             <div class="glossy-circle">
         <dotlottie-wc class="card-img"
   src="https://lottie.host/d3b47886-4fd8-4782-9daa-906b1335cd16/xTQiFOUiOr.lottie"
@@ -609,7 +609,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
 </div>
         </div>
-        <div class="card card-2">
+        <div class="card card-2 md:!mt-[-200px]">
           <div class="glossy-circle">
          <dotlottie-wc class="card-img"
   src="https://lottie.host/0d602a8c-a460-48b0-a041-5823f416c2b6/b419OJJqnk.lottie"
@@ -620,7 +620,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
 </div>
         </div>
-        <div class="card card-3">
+        <div class="card card-3 md:!mt-[-200px]">
           <div class="glossy-circle">
          <dotlottie-wc class="card-img"
   src="https://lottie.host/f51d226b-2158-4c3d-b215-4d4119a350d9/f9LSyK6ZtZ.lottie"
@@ -630,7 +630,7 @@ particlesJS("particles-right", config);
 ></dotlottie-wc>
 </div>
         </div>
-        <div class="card card-4">
+        <div class="card card-4 md:!mt-[100px]">
           <div class="glossy-circle">
           <dotlottie-wc class="card-img"
   src="https://lottie.host/2cb5a537-1aeb-4d49-9a88-e8fd114743a1/rD8pdvQZlL.lottie"
@@ -646,7 +646,7 @@ particlesJS("particles-right", config);
   </div>
 </div>
 
-<section class="services-section bg-black ">
+<section class="services-section bg-black md:!mt-[-300px]">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -698,16 +698,33 @@ particlesJS("particles-right", config);
         </svg>
     </div>
 
-    <div class="approach-section">
-        <h3 class="!text-white">Our Approach</h3>
-        <ul>
-            <li class="!text-white">You're Our Partner</li>
-            <li class="!text-white">Driven by Data, Guided by Creativity</li>
-            <li class="!text-white">Focused on Your ROI</li>
-        </ul>
-        <!-- <button class="cta-button !bg-primary">Explore Our Work</button> -->
-    </div>
+  
 </section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Target the main section to observe
+        const servicesSection = document.querySelector('.services-section');
+
+        // Create the Intersection Observer
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // When the element is in view, add the class
+                    entry.target.classList.add('is-visible');
+                } else {
+                    // When the element is out of view, remove the class
+                    entry.target.classList.remove('is-visible');
+                }
+            });
+        }, {
+            // Options for the observer
+            threshold: 0.1 // Trigger when 20% of the element is visible
+        });
+
+        // Tell the observer to watch the section
+        observer.observe(servicesSection);
+    });
+</script>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <section class="py-16 md:py-24" id="about">
@@ -731,77 +748,9 @@ particlesJS("particles-right", config);
             </div>
         </section>
 
-        <hr class="border-gray-200 dark:border-gray-700">
+      
 
-        <section class="py-16 md:py-24">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">Our Guiding Philosophy</h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                    Our philosophy is the bedrock of our company. It dictates how we work, who we hire, and the standards we set for every line of code and every pixel we design.
-                </p>
-            </div>
-
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                <div class="text-center md:text-left">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Our Mission</h3>
-                    <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
-                        To empower businesses of all sizes to thrive in a digital-first world by architecting and engineering elegant, high-performance digital solutions. We exist to solve complex challenges, transform ambitious ideas into tangible success, and build technology that makes a measurable impact.
-                    </p>
-                </div>
-                <div class="text-center md:text-left">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Our Vision</h3>
-                    <p class="mt-2 text-base text-gray-600 dark:text-gray-400">
-                        To be a globally recognized leader in digital innovation, renowned for our technical excellence, our client-centric approach, and our commitment to creating a digital landscape where technology is a seamless, powerful, and positive extension of human ambition.
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-20">
-                <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white text-center">Our Core Values</h3>
-                <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                    
-                    <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200/50">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a15.045 15.045 0 01-7.5 0C4.508 19.64 2.25 15.184 2.25 10.5 2.25 5.816 4.508 1.36 8.25 1.36c3.742 0 6 4.456 6 9.14 0 4.684-2.258 9.14-6 9.14z" /></svg>
-                        </div>
-                        <h4 class="mt-4 text-lg font-bold text-gray-900 dark:text-white">Innovation at the Core</h4>
-                        <p class="mt-1 text-base">We are relentlessly curious. We constantly explore emerging technologies to ensure our clients always have a competitive edge.</p>
-                    </div>
-
-                    <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200/50">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h4 class="mt-4 text-lg font-bold text-gray-900 dark:text-white">Unwavering Commitment to Quality</h4>
-                        <p class="mt-1 text-base">Good enough is never enough. Our rigorous testing processes ensure that what we deliver is not just functional, but flawless.</p>
-                    </div>
-
-                    <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200/50">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
-                        </div>
-                        <h4 class="mt-4 text-lg font-bold text-gray-900 dark:text-white">Radical Transparency & Partnership</h4>
-                        <p class="mt-1 text-base">We operate with open, honest communication and complete visibility into our process. You are our partner in innovation.</p>
-                    </div>
-
-                    <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200/50">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" /></svg>
-                        </div>
-                        <h4 class="mt-4 text-lg font-bold text-gray-900 dark:text-white">Integrity in Everything We Do</h4>
-                        <p class="mt-1 text-base">We build relationships on trust and respect. We are accountable for our work and operate with the highest ethical standards.</p>
-                    </div>
-
-                    <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200/50">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.75 0h.008v.015H9zM15 9.75c0 .414-.168.75-.375.75S14.25 10.164 14.25 9.75 14.418 9 14.625 9s.375.336.375.75zm-.75 0h.008v.015h-.008z" /></svg>
-                        </div>
-                        <h4 class="mt-4 text-lg font-bold text-gray-900 dark:text-white">Empathy-Driven Design</h4>
-                        <p class="mt-1 text-base">We build for people. Our design process is deeply rooted in understanding the end-user to create accessible and engaging experiences.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         <hr class="border-gray-200 dark:border-gray-700">
 
